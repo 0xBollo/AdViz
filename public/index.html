@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="javascripts/script.js" defer></script>
+
+    <title>AdViz</title>
+</head>
+<body>
+    <div class="screen" id="login-screen">
+        <div class="wrapper account-wrapper" id="login-wrapper">
+            <img src="images/logo.png" alt="AdViz Logo" class="logo" id="logo-login">
+            <form class="account-form" id="login-form">
+                <label for="username-input" class="label">Username</label>
+                <input type="text" class="input" id="username-input" placeholder="Username" required>    
+                <label for="password-input" class="label">Password</label>
+                <input type="password" class="input" id="password-input" placeholder="Password" required>
+                <div class="button-container" id="login-button-container">
+                    <button type="reset" class="form-button" id="register-button">Register</button>
+                    <button type="submit" class="form-button form-main-button" id="login-button">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="screen" id="create-account-screen">
+        <div class="wrapper account-wrapper" id="create-account-wrapper">
+            <form class="account-form" id="create-account-form">
+                <div class="title">Create Account</div>
+                <label for="create-username-input" class="label">Username</label>
+                <input type="text" class="input" id="create-username-input" placeholder="Username" required> 
+                <label for="create-password-input" class="label">Password</label>
+                <input type="password" class="input" id="create-password-input" placeholder="Password" required>
+                <label for="repeat-password-input" class="label">Repeat Password</label>
+                <input type="password" class="input" id="repeat-password-input" placeholder="Repeat Password" required>
+                <div class="button-container" id="create-account-button-container">
+                    <button type="reset" class="form-button" id="cancel-create-account-button">Cancel</button>
+                    <button type="submit" class="form-button form-main-button" id="create-button">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="screen" id="add-contact-screen">
+        <div class="wrapper contact-wrapper" id="add-contact-wrapper">
+            <div class="title">Add Contact</div>
+            <form class="contact-form" id="add-contact-form">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="contact-photo-preview-container">
+                            <img src="images/default_contact_photo.jpg" alt="Contact Photo" class="contact-photo-preview">
+                        </div>
+                        <div class="contact-photo-input-container">
+                            <input type="file" class="contact-photo-input" id="add-contact-photo-input">
+                        </div>
+                    </div>
+                    <div class="grid-item name-input-grid-item">
+                        <div class="first-last-name-input-container">
+                            <label for="add-first-name-input" class="label">First Name *</label>
+                            <input type="text" name="first-name" class="input" id="add-first-name-input" placeholder="First Name" required>
+                            <label for="add-last-name-input" class="label">Last Name *</label>
+                            <input type="text" name="last-name" class="input" id="add-last-name-input" placeholder="Last-Name" required>
+                        </div>
+                        <div class="nickname-input-container">
+                            <label for="add-nickname-input" class="label">Nickname</label>
+                            <input type="text" name="nickname" class="input" id="add-nickname-input" placeholder="Nickname">
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <label for="add-street-and-number-input" class="label">Street & Number *</label>
+                        <input type="text" name="street-and-number" class="input" id="add-street-and-number-input" placeholder="Street & Number" required>
+                        <label for="add-zip-input" class="label">ZIP *</label>
+                        <input type="text" name="zip" class="input" id="add-zip-input" placeholder="ZIP" required>
+                    </div>
+                    <div class="grid-item">
+                        <label for="add-city-input" class="label">City *</label>
+                        <input type="text" name="city" class="input" id="add-city-input" placeholder="City" required>
+                        <label for="add-country-input" class="label">Country</label>
+                        <input type="text" name="country" class="input" id="add-country-input" placeholder="Country">
+                    </div>
+                    <div class="grid-item">
+                        <label for="add-phone-input" class="label">Phone Number</label>
+                        <input type="text" name="phone" class="input phone-input" id="add-phone-input" placeholder="Phone Number">
+                        <label for="add-email-input" class="label">E-Mail</label>
+                        <input type="email" name="email" class="input" id="add-email-input" placeholder="E-Mail">
+                    </div>
+                    <div class="grid-item dob-public-input-grid-item">
+                        <div class="dob-input-container">
+                            <label for="add-dob-input" class="label">Date of Birth</label>
+                            <input type="date" name="dob" class="input dob-input" id="add-dob-input">
+                        </div>
+                        <div class="public-checkbox-container">
+                            <input type="checkbox" name="is-public" class="public-checkbox" id="add-public-checkbox"> 
+                            <label for="add-public-checkbox">Public</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="footnote">* required</div>
+                <div class="button-container contact-button-container">
+                    <button type="reset" class="form-button" id="cancel-add-contact-button">Cancel</button>
+                    <button type="submit" class="form-button form-main-button" id="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="screen" id="edit-contact-screen">
+        <div class="wrapper contact-wrapper" id="edit-contact-wrapper">
+            <button id="close-button">&#x2715;</button>
+            <div class="title">Edit Contact</div>
+            <form class="contact-form" id="edit-contact-form">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="contact-photo-preview-container">
+                            <img src="images/maurice_gajewski.jpg" alt="Contact Photo" class="contact-photo-preview">
+                        </div>
+                        <div class="contact-photo-input-container">
+                            <input type="file" class="contact-photo-input" id="edit-contact-photo-input">
+                        </div>
+                    </div>
+                    <div class="grid-item name-input-grid-item">
+                        <div class="edit-last-name-input-container">
+                            <label for="edit-first-name-input" class="label">First Name *</label>
+                            <input type="text" name="first-name" class="input" id="edit-first-name-input" placeholder="First Name" required>
+                            <label for="edit-last-name-input" class="label">Last Name *</label>
+                            <input type="text" name="last-name" class="input" id="edit-last-name-input" placeholder="Last-Name" required>
+                        </div>
+                        <div class="nickname-input-container">
+                            <label for="edit-nickname-input" class="label">Nickname</label>
+                            <input type="text" name="nickname" class="input" id="edit-nickname-input" placeholder="Nickname">
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <label for="edit-street-and-number-input" class="label">Street & Number *</label>
+                        <input type="text" name="street-and-number" class="input" id="edit-street-and-number-input" placeholder="Street & Number" required>
+                        <label for="edit-zip-input" class="label">ZIP *</label>
+                        <input type="text" name="zip" class="input" id="edit-zip-input" placeholder="ZIP" required>
+                    </div>
+                    <div class="grid-item">
+                        <label for="edit-city-input" class="label">City *</label>
+                        <input type="text" name="city" class="input" id="edit-city-input" placeholder="City" required>
+                        <label for="edit-country-input" class="label">Country</label>
+                        <input type="text" name="country" class="input" id="edit-country-input" placeholder="Country"">
+                    </div>
+                    <div class="grid-item">
+                        <label for="edit-phone-input" class="label">Phone Number</label>
+                        <input type="text" name="phone" class="input phone-input" id="edit-phone-input" placeholder="Phone Number">
+                        <label for="edit-email-input" class="label">E-Mail</label>
+                        <input type="email" name="email" class="input" id="edit-email-input" placeholder="E-Mail">
+                    </div>
+                    <div class="grid-item dob-public-input-grid-item">
+                        <div class="dob-input-container">
+                            <label for="edit-dob-input" class="label">Date of Birth</label>
+                            <input type="date" name="dob" class="input dob-input" id="edit-dob-input">
+                        </div>
+                        <div class="public-checkbox-container">
+                            <input type="checkbox" name="is-public" class="public-checkbox" id="edit-public-checkbox" checked> 
+                            <label for="edit-public-checkbox">Public</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="footnote">* required</div>
+                <div class="button-container contact-button-container">
+                    <button type="button" class="form-button" id="remove-button">Remove</button>
+                    <button type="submit" class="form-button form-main-button" id="edit-button">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="screen" id="main-screen">
+        <div id="main-container">
+            <div id="welcome-message">Welcome Normalo</div>
+            <div id="main-content-container">
+                <div class="wrapper" id="main-wrapper">
+                    <div id="all-my-contacts-button-container">
+                        <div id="all-contacts-button"> All Contacts</div>
+                        <div id="my-contacts-button">My Contacts</div>
+                    </div>
+                    <div class="scroll-container">
+                        <div id="info-message">
+                            <i id="you-see">You see your contacts and the public contacts of others.</i> <br>
+                            Number: <strong id="number-of-contacts">24</strong> 
+                        </div>
+                        <div id="add-contact-button">Add Contact</div>
+                        <div id="contact-list">
+                            <!--<div class="contact">
+                                <img src="src/img/default_contact_photo.jpg" alt="Contact photo of Daniel Holmes" class="contact-photo">
+                                <div class="name">
+                                    Daniel Holmes <br>
+                                    <span class="from">from you</span>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <img src="src/img/default_contact_photo.jpg" alt="Contact photo of Maurice Gajewski" class="contact-photo">
+                                <div class="name">
+                                    Maurice Gajewski <br>
+                                    <span class="from">from Admina</span>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <img src="src/img/default_contact_photo.jpg" alt="Contact photo of Ramona Freitag" class="contact-photo">
+                                <div class="name">
+                                    Ramona Freitag <br>
+                                    <span class="from">from you</span>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <img src="src/img/default_contact_photo.jpg" alt="Contact photo of Finja Brandenburger" class="contact-photo">
+                                <div class="name">
+                                    Finja Brandenburger <br>
+                                    <span class="from">from Admina</span>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <img src="src/img/default_contact_photo.jpg" alt="Contact photo of Oliver Noltemeyer" class="contact-photo">
+                                <div class="name">
+                                    Oliver Noltemeyer <br>
+                                    <span class="from">from Admina</span>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper" id="map-wrapper">
+                    <!--<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=12.82859802246094%2C52.32358963210519%2C13.975296020507814%2C52.70717921897978&amp;layer=mapnik&amp;marker=52.51580301288362%2C13.401947021484375"></iframe>-->
+                    <div id="map"></div>
+                </div>
+            </div>
+            <div id="logout-button-container">
+                <button id="logout-button">Logout</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

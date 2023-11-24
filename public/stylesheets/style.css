@@ -1,0 +1,491 @@
+* {
+    box-sizing: border-box;
+    color: rgb(141, 141, 141);
+    font-family: sans-serif;
+}
+
+html, body {
+    width: 100%; 
+    height: 100%; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: rgb(22, 22, 22);
+    position: relative;
+}
+
+.label {
+    font-size: 0.72em;
+    color: rgb(70, 253, 183);
+}
+
+fieldset {
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.input {
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    border: 1px solid rgb(141, 141, 141);
+
+    background-color: transparent;
+    color: rgb(70, 253, 183);
+}
+
+.account-form .input {
+    margin: 3px 0 6px 0;
+}
+
+.screen {
+    width: 100%;
+    min-width: fit-content;
+    min-height: 100%; 
+    max-height: fit-content;
+    margin: 0;
+    padding: 2cm;
+
+    display: none; 
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-screen {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+#add-contact-screen, #edit-contact-screen {
+    height: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.774);
+    z-index: 2;
+}
+
+#main-screen {
+    z-index: 1;
+}
+
+.wrapper {
+    border: rgb(172, 172, 172) solid 1px;
+    border-radius: 4px;
+
+    background-color: rgb(33, 33, 33);
+}
+
+.account-wrapper {
+    width: 8.2cm;
+    max-width: 100%;
+    height: fit-content;
+    padding: 1.5cm;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.form-button {
+    background-color: rgb(75, 75, 75);
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+    border-radius: 13px;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-width: 0;
+}
+
+.form-main-button {
+    border: rgb(70, 253, 183) solid 1px;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7em;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(41, 194, 123);
+}
+
+.contact {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 18px 25px;
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 25px;
+    cursor: pointer;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.contact:hover {
+    background-color: rgb(54, 54, 54);
+}
+
+.contact:hover .name {
+    color: rgb(218, 218, 218);
+}
+
+.contact:active {
+    background-color: transparent;
+}
+
+.contact-photo {
+    width: 75px;
+    height: 75px;
+    border: 2px solid rgb(70, 253, 183);
+    border-radius: 50%;
+}
+
+.scroll-container {
+    width: 100%;
+    margin-top: 5px;
+    justify-self: stretch;
+    padding: 10px 25px 5px 25px;
+    overflow: auto;
+}
+
+.name {
+    font-size: 1.2em;
+    margin-left: 2.5%;
+}
+
+.from {
+    font-size: 0.75em;
+    margin-left: 3%;
+}
+
+#logo-login {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+#login-button-container, #create-account-button-container {
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.contact-wrapper {
+    width: 32em;
+    max-width: 100%;
+    padding: 1.5cm;
+}
+
+#add-button-container {
+    justify-content: center;
+}
+
+#main-container {
+    width: 90%;
+    min-width: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#welcome-message {
+    width: 100%;
+    min-width: fit-content;
+    margin-bottom: 30px;
+    font-size: 4em;
+    text-align: center;
+}
+
+#main-content-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+}
+
+#all-my-contacts-button-container {
+    width: 100%;
+    justify-self: flex-start; 
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+}
+
+#all-contacts-button, #my-contacts-button {
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    text-align: center;
+    flex: 1 1 50%;
+    cursor: pointer;
+}
+
+#my-contacts-button {
+    background-color: rgb(48, 48, 48);
+}
+
+#main-wrapper {
+    width: 450px; 
+    height: 630px;
+    flex-grow: 1;
+
+    display: flex;
+    flex-flow: column nowrap; 
+}
+
+#map-wrapper {
+    width: 300px; 
+    height: 630px;
+    overflow: hidden;
+    flex-grow: 3; 
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    z-index: 1;
+}
+
+#logout-button-container {
+    width: 100%;
+    min-width: fit-content;
+    margin-top: 15px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+#logout-button {
+    border: none;
+    font-size: 1em;
+    text-decoration: underline;
+
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    color: rgb(70, 253, 183);
+}
+
+#logout-button:focus {
+    color: rgb(141, 141, 141);
+}
+
+#info-message {
+    margin-bottom: 15px; 
+    text-align: center;
+    line-height: 135%;
+}
+
+#main-container .wrapper {
+    margin: 5px;
+}
+
+#add-contact-button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(54, 54, 54);
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#add-contact-button:hover {
+    background-color: rgb(70, 253, 183);
+    color: rgb(30, 30, 30);
+}
+
+#add-contact-button:active {
+    background-color: rgb(75, 75, 75);
+    color: rgb(70, 253, 183);
+}
+
+#contact-list {
+    width: 100%;
+}
+
+.input:hover {
+    background-color: rgb(54, 54, 54);
+}
+
+.input:focus {
+    color: rgb(70, 253, 183);
+    outline: 1px solid rgb(70, 253, 183);
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.form-button:hover, input::-webkit-file-upload-button:hover {
+    background-color: rgb(70, 253, 183);
+    color: rgb(30, 30, 30);
+}
+
+.form-button:focus, input::-webkit-file-upload-button:focus {
+    background-color: rgb(75, 75, 75);
+    color: rgb(70, 253, 183);
+}
+
+#all-contacts-button:hover, #my-contacts-button:hover {
+    background-color: transparent !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(70, 70, 70);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(88, 88, 88);;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgb(81, 81, 81);
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(99, 99, 99);
+}
+
+.input:focus::placeholder {
+    color: rgb(70, 253, 183);
+}
+
+.contact-button-container button {
+    margin: 0 0.1cm;
+}
+
+.contact-button-container {
+    justify-content: center;
+    margin-top: 0.1cm;
+}
+
+.contact-photo-input {
+    width: 100%;
+}
+
+.footnote {
+    margin-top: 0.2cm;
+    font-size: 0.7em;
+}
+
+#edit-contact-wrapper {
+    position: relative;
+}
+
+#close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#close-button:hover {
+    color: rgb(218, 218, 218);
+}
+
+#close-button:focus {
+    color: rgb(141, 141, 141);
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.contact-photo-preview {
+    aspect-ratio: 1/1;
+    width: 100%;
+    border: 1px solid rgb(141, 141, 141);
+}
+
+input::-webkit-file-upload-button {
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-width: 0;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content min-content; 
+    row-gap: 0.8cm;
+    column-gap: 0.8cm;
+}
+
+.contact-form label {
+    font-size: 0.8em;
+}
+
+.name-input-grid-item, .dob-public-input-grid-item {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.first-last-name-input-container, .dob-input-container {
+    width: 100%;
+    align-self: flex-start;
+}
+
+.nickname-input-container, .public-checkbox-container {
+    width: 100%;
+    align-self: flex-end;
+}
+
+.contact-form .input {
+    margin: 3px 0;
+}
+
+.public-checkbox {
+    aspect-ratio: 1/1;
+}
+
+::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.6);
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    filter: invert(1);
+}
+
+::-webkit-calendar-picker-indicator:active {
+    filter: invert(0.6);
+}
